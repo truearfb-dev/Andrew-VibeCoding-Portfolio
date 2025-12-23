@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
 
       <p className="max-w-lg text-gray-400 text-sm md:text-base leading-relaxed font-light">
         Создаю IT-продукты с помощью ИИ. <br className="hidden md:block" />
-        <span className="text-white font-semibold drop-shadow-md">0 строчек кода вручную. 100% души.</span>
+        <span className="text-white font-semibold drop-shadow-md">Нейросети пишут код. 100% души.</span>
       </p>
     </section>
   );
