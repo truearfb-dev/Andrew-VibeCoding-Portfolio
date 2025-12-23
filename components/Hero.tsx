@@ -18,32 +18,39 @@ export const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex flex-col items-center text-center space-y-6 animate-fade-in-up">
-      <div className="relative group">
-        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-75 blur group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-        <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/20 bg-black">
+    <section className="flex flex-col items-center text-center space-y-8 animate-fade-in-up">
+      {/* Avatar Container with Neon Glow */}
+      <div className="relative group cursor-pointer">
+        {/* Outer Glow Ring */}
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-neon via-purple-500 to-neonLight rounded-full opacity-70 blur-md group-hover:opacity-100 group-hover:blur-lg transition duration-500 animate-glow"></div>
+        
+        {/* Image Frame */}
+        <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-black bg-black shadow-[0_0_40px_rgba(168,85,247,0.4)]">
           <img 
             src="./photo.jpg" 
             alt="Andrew" 
-            className="w-full h-full object-cover opacity-90 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+            className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-110"
           />
+          
+          {/* Shine effect overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
         </div>
       </div>
 
-      <div className="space-y-2">
-        <h1 className="text-5xl md:text-7xl font-mono font-bold tracking-tighter text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+      <div className="space-y-4">
+        <h1 className="text-5xl md:text-8xl font-mono font-bold tracking-tighter text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]">
           ANDREW
         </h1>
-        <div className="h-8"> {/* Fixed height to prevent layout shift */}
-            <p className="text-neonLight font-mono text-sm md:text-lg tracking-widest border-r-2 border-neon animate-pulse inline-block pr-1">
+        <div className="h-8 flex justify-center items-center">
+            <p className="text-neonLight font-mono text-sm md:text-lg tracking-widest border-r-2 border-neon animate-pulse inline-block pr-2">
             {text}
             </p>
         </div>
       </div>
 
-      <p className="max-w-md text-gray-400 text-sm md:text-base leading-relaxed">
+      <p className="max-w-lg text-gray-400 text-sm md:text-base leading-relaxed font-light">
         Создаю IT-продукты с помощью ИИ. <br className="hidden md:block" />
-        <span className="text-white font-semibold">0 строчек кода вручную. 100% души.</span>
+        <span className="text-white font-semibold drop-shadow-md">0 строчек кода вручную. 100% души.</span>
       </p>
     </section>
   );
