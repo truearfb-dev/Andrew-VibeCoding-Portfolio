@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import photoUrl from '../photo.jpg'; // Import the image explicitly
 
 export const Hero: React.FC = () => {
   const [text, setText] = useState('');
   const fullText = "VIBE CODER | СОЗДАТЕЛЬ | МЕЧТАТЕЛЬ";
   
+  // Using the raw GitHub URL ensures the image loads regardless of build path issues
+  const photoUrl = "https://raw.githubusercontent.com/truearfb-dev/Andrew-VibeCoding-Portfolio/main/photo.jpg";
+
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
@@ -31,6 +33,10 @@ export const Hero: React.FC = () => {
             src={photoUrl} 
             alt="Andrew" 
             className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-110"
+            onError={(e) => {
+              // Fallback if image fails
+              (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1000&auto=format&fit=crop";
+            }}
           />
           
           {/* Shine effect overlay */}
