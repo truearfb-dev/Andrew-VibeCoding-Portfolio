@@ -32,7 +32,7 @@ export const SecondaryProjects: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-70 hover:opacity-100 transition-opacity duration-500">
         <ProjectCard 
-            title="Magic Tales" 
+            title="Quantum Soul" 
             status="Скоро" 
             icon={<Timer className="w-8 h-8" />}
         />
