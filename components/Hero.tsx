@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import photoUrl from '../photo.jpg'; // Import the image explicitly
 
 export const Hero: React.FC = () => {
   const [text, setText] = useState('');
@@ -27,7 +28,7 @@ export const Hero: React.FC = () => {
         {/* Image Frame */}
         <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-black bg-black shadow-[0_0_40px_rgba(168,85,247,0.4)]">
           <img 
-            src="./photo.jpg" 
+            src={photoUrl} 
             alt="Andrew" 
             className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-110"
           />
