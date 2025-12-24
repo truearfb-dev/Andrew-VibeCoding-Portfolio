@@ -4,8 +4,9 @@ export const Hero: React.FC = () => {
   const [text, setText] = useState('');
   const fullText = "VIBE CODER | СОЗДАТЕЛЬ | МЕЧТАТЕЛЬ";
   
-  // Important: Ensure photo.jpg is inside the 'public' folder in your project root
+  // Primary image is user's upload, fallback is the generated SVG
   const photoUrl = "/photo.jpg";
+  const fallbackUrl = "/avatar.svg";
 
   useEffect(() => {
     let index = 0;
@@ -32,6 +33,11 @@ export const Hero: React.FC = () => {
           <img 
             src={photoUrl} 
             alt="Andrew" 
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.onerror = null; // Prevent infinite loop
+              target.src = fallbackUrl;
+            }}
             className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-110"
           />
           
