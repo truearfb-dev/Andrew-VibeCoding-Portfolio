@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Vibe Coding Portfolio
 
-# Run and deploy your AI Studio app
+Личный лендинг-портфолио в стиле Cyberpunk/Neon.
+Разработано с использованием **React**, **TypeScript**, **Tailwind CSS** и **Vite**.
 
-This contains everything you need to run your app locally.
+## 🚀 Как настроить под себя
 
-View your app in AI Studio: https://ai.studio/apps/drive/19Xiw8njn7KuZOUWbrq73LzUIbz-1Dnw0
+### 1. Фотография профиля
+Проект ожидает файл фотографии по пути `/public/photo.jpg`.
+*   **Если фото нет:** Автоматически отображается стильная SVG-аватарка.
+*   **Как загрузить свое:** Просто добавьте файл `photo.jpg` в папку `public` (или загрузите его через интерфейс GitHub, перезаписав существующий файл).
 
-## Run Locally
+### 2. Ссылки и Тексты
+Основные данные находятся в компонентах:
+*   `components/Hero.tsx` — Заголовок и описание.
+*   `components/MainProject.tsx` — Главный проект (SuperWoman AI).
+*   `components/Footer.tsx` — Ссылка на Telegram.
 
-**Prerequisites:**  Node.js
+## 🛠 Установка и запуск
 
+```bash
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📊 Аналитика
+Подключена Яндекс.Метрика (код находится в `index.html`).
+
+## 🎨 Стек
+*   React 18
+*   Tailwind CSS (с кастомными анимациями neon/glow)
+*   Lucide React (иконки)

@@ -1,77 +1,135 @@
-import React from 'react';
-import { ExternalLink, Zap } from 'lucide-react';
+import React, { useState } from 'react';
+import { ExternalLink, ChevronDown, ChevronUp, Bot, Sparkles, Heart, LineChart } from 'lucide-react';
+
+interface Project {
+  id: string;
+  name: string;
+  description: string;
+  link: string;
+  icon: React.ReactNode;
+  highlight?: boolean;
+  status?: string;
+}
 
 export const MainProject: React.FC = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  const projects: Project[] = [
+    {
+      id: 'superwoman',
+      name: 'SuperWoman AI',
+      description: 'Экосистема ИИ-помощников для девушек',
+      link: 'https://t.me/+-7Uuw03zGaQwZDhi',
+      icon: <Sparkles className="w-6 h-6 text-yellow-400" />,
+      highlight: true
+    },
+    {
+      id: 'glow',
+      name: 'Glow Style AI',
+      description: 'Карманный стилист: цветотип и фейс-йога',
+      link: '#', // Замените на реальную ссылку
+      icon: <Bot className="w-6 h-6 text-pink-400" />
+    },
+    {
+      id: 'nutrimy',
+      name: 'Nutrimy AI',
+      description: 'Считаем калории по фото еды',
+      link: '#', // Замените на реальную ссылку
+      icon: <Heart className="w-6 h-6 text-green-400" />
+    },
+    {
+      id: 'skazka',
+      name: 'MoySkazka',
+      description: 'Добрые сказки для детей за 1 минуту',
+      link: '#', // Замените на реальную ссылку
+      icon: <Bot className="w-6 h-6 text-blue-400" />
+    },
+    {
+      id: 'crypto',
+      name: 'Crypto Sentinel',
+      description: 'Умный мониторинг курсов и новостей',
+      link: '#', // Замените на реальную ссылку
+      icon: <LineChart className="w-6 h-6 text-teal-400" />,
+      status: 'В разработке'
+    }
+  ];
+
+  const visibleProjects = showAll ? projects : projects.slice(0, 5);
+
   return (
-    <section className="w-full">
-      <div className="relative group w-full">
-        {/* Glow effect behind the card */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-neon to-purple-900 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-        
-        <div className="relative p-1 rounded-2xl bg-black/50 backdrop-blur-xl border border-white/10 hover:-translate-y-2 transition-transform duration-500 ease-out">
-            <div className="px-6 py-10 md:py-14 md:px-12 flex flex-col items-center text-center space-y-8">
-                
-                <div className="inline-flex items-center space-x-2 bg-white/5 px-3 py-1 rounded-full border border-white/10">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                    <span className="text-xs font-mono text-gray-300 uppercase tracking-widest">Live Проект</span>
-                </div>
-
-                {/* Title with padding fix for italic clipping */}
-                <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter pb-1">
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-[length:200%_auto] animate-gradient-x pr-4">
-                        SuperWoman AI
-                    </span>
-                </h2>
-
-                <div className="space-y-6 max-w-2xl mx-auto">
-                    <p className="text-white text-lg md:text-xl font-medium leading-relaxed drop-shadow-md">
-                        💎 Первая экосистема ИИ-помощников для современной девушки.
-                    </p>
-
-                    {/* Bot List - "Organic" layout */}
-                    <div className="grid gap-3 text-left bg-white/5 p-5 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-                        <div className="flex items-start space-x-3 text-sm md:text-base text-gray-300">
-                            <span className="text-xl flex-shrink-0">👗</span>
-                            <span>
-                                <strong className="text-neonLight font-mono">@Glow_Style_AI_bot</strong> — Твой карманный стилист (цветотип и фейс-йога)
-                            </span>
-                        </div>
-                        <div className="flex items-start space-x-3 text-sm md:text-base text-gray-300">
-                            <span className="text-xl flex-shrink-0">🥗</span>
-                            <span>
-                                <strong className="text-neonLight font-mono">@Nutrimy_AI_bot</strong> — Считаем калории по фото
-                            </span>
-                        </div>
-                        <div className="flex items-start space-x-3 text-sm md:text-base text-gray-300">
-                            <span className="text-xl flex-shrink-0">🧸</span>
-                            <span>
-                                <strong className="text-neonLight font-mono">@MoySkazka_bot</strong> — Добрые сказки для детей за 1 минуту!
-                            </span>
-                        </div>
-                    </div>
-
-                    <span className="block text-xs text-gray-500 font-mono pt-2">Разработано за 48 часов.</span>
-                </div>
-
-                <div className="pt-2">
-                    <a 
-                        href="https://t.me/+-7Uuw03zGaQwZDhi" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-neon font-mono rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neon hover:bg-purple-600 hover:scale-105 shadow-[0_0_20px_rgba(168,85,247,0.5)] animate-pulse-slow"
-                    >
-                        <Zap className="w-5 h-5 mr-2 fill-current" />
-                        ПОЛУЧИТЬ ДОСТУП
-                        <ExternalLink className="w-4 h-4 ml-2" />
-                    </a>
-                </div>
-            </div>
-            
-            {/* Decorative tech lines */}
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+    <section className="w-full max-w-2xl mx-auto">
+      
+      {/* Header */}
+      <div className="flex items-center space-x-4 mb-8">
+        <div className="h-px bg-gradient-to-r from-transparent via-neon to-transparent flex-1 opacity-50"></div>
+        <div className="flex items-center space-x-2 px-4 py-1 rounded-full bg-neon/10 border border-neon/20 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span className="text-xs font-mono font-bold text-neonLight tracking-widest uppercase">Live Проекты</span>
         </div>
+        <div className="h-px bg-gradient-to-r from-transparent via-neon to-transparent flex-1 opacity-50"></div>
       </div>
+
+      {/* List */}
+      <div className="flex flex-col space-y-3">
+        {visibleProjects.map((project) => (
+          <a
+            key={project.id}
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative flex items-center justify-between p-4 rounded-xl transition-all duration-300 border backdrop-blur-sm
+              ${project.highlight 
+                ? 'bg-gradient-to-r from-neon/10 to-purple-900/20 border-neon/50 shadow-[0_0_20px_rgba(168,85,247,0.15)] hover:bg-neon/20' 
+                : 'bg-white/5 border-white/5 hover:bg-white/10 hover:border-white/20'
+              }
+              hover:-translate-y-1 hover:shadow-lg
+            `}
+          >
+            <div className="flex items-center space-x-4">
+              <div className={`p-2 rounded-lg bg-black/40 border border-white/5 group-hover:scale-110 transition-transform duration-300`}>
+                {project.icon}
+              </div>
+              <div className="text-left">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h3 className={`font-mono font-bold text-base md:text-lg leading-tight ${project.highlight ? 'text-white' : 'text-gray-200 group-hover:text-white'}`}>
+                    {project.name}
+                  </h3>
+                  {project.status && (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full border border-gray-600 bg-gray-800/50 text-gray-400 uppercase tracking-wider">
+                      {project.status}
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs md:text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+
+            <div className="pl-4">
+              <div className={`p-2 rounded-full transition-all duration-300 ${project.highlight ? 'bg-neon text-white' : 'bg-white/5 text-gray-400 group-hover:text-white group-hover:bg-white/20'}`}>
+                <ExternalLink className="w-4 h-4" />
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      {/* Show More Button */}
+      {projects.length > 5 && (
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="flex items-center space-x-2 text-xs md:text-sm font-mono text-gray-500 hover:text-neonLight transition-colors uppercase tracking-widest"
+          >
+            <span>{showAll ? 'Свернуть' : 'Показать все проекты'}</span>
+            {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          </button>
+        </div>
+      )}
     </section>
   );
 };
