@@ -4,9 +4,8 @@ export const Hero: React.FC = () => {
   const [text, setText] = useState('');
   const fullText = "VIBE CODER | СОЗДАТЕЛЬ | МЕЧТАТЕЛЬ";
   
-  // Primary image is user's upload, fallback is the generated SVG
+  // Pointing to the user's uploaded photo
   const photoUrl = "/photo.jpg";
-  const fallbackUrl = "/avatar.svg";
 
   useEffect(() => {
     let index = 0;
@@ -33,12 +32,11 @@ export const Hero: React.FC = () => {
           <img 
             src={photoUrl} 
             alt="Andrew" 
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.onerror = null; // Prevent infinite loop
-              target.src = fallbackUrl;
-            }}
             className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-110"
+            onError={(e) => {
+              // Fallback if photo.jpg is missing yet
+              e.currentTarget.src = "/avatar.svg"; 
+            }}
           />
           
           {/* Shine effect overlay */}
