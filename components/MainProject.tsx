@@ -25,30 +25,30 @@ export const MainProject: React.FC = () => {
     },
     {
       id: 'glow',
-      name: 'Glow Style AI',
+      name: 'Glow AI | Стилист и Фейс-йога',
       description: 'Карманный стилист: цветотип и фейс-йога',
-      link: '#', // Замените на реальную ссылку
+      link: 'https://t.me/Glow_Style_AI_bot',
       icon: <Bot className="w-6 h-6 text-pink-400" />
     },
     {
       id: 'nutrimy',
-      name: 'Nutrimy AI',
+      name: 'NutriLens | Твой нутрициолог',
       description: 'Считаем калории по фото еды',
-      link: '#', // Замените на реальную ссылку
+      link: 'https://t.me/Nutrimy_AI_bot',
       icon: <Heart className="w-6 h-6 text-green-400" />
     },
     {
       id: 'skazka',
-      name: 'MoySkazka',
+      name: 'Magic Tales',
       description: 'Добрые сказки для детей за 1 минуту',
-      link: '#', // Замените на реальную ссылку
+      link: 'https://t.me/MoySkazka_bot',
       icon: <Bot className="w-6 h-6 text-blue-400" />
     },
     {
       id: 'crypto',
       name: 'Crypto Sentinel',
       description: 'Умный мониторинг курсов и новостей',
-      link: '#', // Замените на реальную ссылку
+      link: '#', 
       icon: <LineChart className="w-6 h-6 text-teal-400" />,
       status: 'В разработке'
     }
