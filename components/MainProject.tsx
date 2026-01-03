@@ -34,7 +34,7 @@ export const MainProject: React.FC = () => {
       id: 'nutrimy',
       name: 'NutriLens | Твой нутрициолог',
       description: 'Считаем калории по фото еды',
-      link: 'https://t.me/Nutrimy_AI_bot',
+      link: 'https://t.me/Nutrilensai_bot/app?startapp=mainsite',
       icon: <Heart className="w-6 h-6 text-green-400" />
     },
     {
