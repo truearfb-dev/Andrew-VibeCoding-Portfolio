@@ -21,7 +21,7 @@ export const MainProject: React.FC = () => {
     description: 'Мгновенный подсчет калорий по фото еды. ИИ распознает блюдо, определяет вес и выдает полный расклад КБЖУ за 1 секунду.',
     link: 'https://t.me/Nutrilensai_bot/app?startapp=mainsite',
     stats: ['10k+ Пользователей', '98% Точность', '24/7 Трекинг'],
-    image: '/nutrilens-screen.jpg' // User needs to add this file
+    image: '/nutrilens-screen.jpg' 
   };
 
   const projects: Project[] = [
@@ -60,95 +60,93 @@ export const MainProject: React.FC = () => {
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
-    <section className="w-full max-w-4xl mx-auto flex flex-col gap-16">
+    <section className="w-full max-w-4xl mx-auto flex flex-col items-center gap-16">
       
-      {/* FEATURED PROJECT: NUTRILENS (iPhone 16 Presentation) */}
-      <div className="relative w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* Left Side: Info */}
-        <div className="flex flex-col space-y-6 text-left order-2 lg:order-1">
-           <div className="flex items-center space-x-2">
+      {/* FEATURED PROJECT: NUTRILENS */}
+      <div className="flex flex-col items-center text-center space-y-8 max-w-2xl relative z-20">
+           {/* Badge */}
+           <div className="flex items-center space-x-2 animate-fade-in">
               <span className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-mono tracking-widest uppercase animate-pulse">
                 Flagship Project
               </span>
            </div>
            
-           <h2 className="text-4xl md:text-5xl font-bold font-mono text-white leading-tight">
-             {featuredProject.name}
-             <span className="block text-2xl md:text-3xl text-gray-400 mt-2 font-light">{featuredProject.tagline}</span>
-           </h2>
+           {/* Text Content */}
+           <div className="space-y-4">
+             <h2 className="text-5xl md:text-7xl font-bold font-mono text-white leading-tight drop-shadow-[0_0_25px_rgba(74,222,128,0.2)]">
+               {featuredProject.name}
+             </h2>
+             <p className="text-xl md:text-2xl text-gray-400 font-light">
+               {featuredProject.tagline}
+             </p>
+           </div>
 
-           <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-md">
+           <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-lg mx-auto">
              {featuredProject.description}
            </p>
 
-           <div className="flex flex-wrap gap-4 py-2">
+           {/* Stats */}
+           <div className="flex flex-wrap justify-center gap-4 md:gap-8 py-2">
              {featuredProject.stats.map((stat, i) => (
                <div key={i} className="flex items-center space-x-2 text-sm text-gray-400 font-mono">
-                 <Zap className="w-3 h-3 text-neon" />
+                 <Zap className="w-4 h-4 text-neon" />
                  <span>{stat}</span>
                </div>
              ))}
            </div>
 
+           {/* CTA Button */}
            <a 
              href={featuredProject.link}
              target="_blank"
              rel="noopener noreferrer"
-             className="group relative inline-flex items-center justify-center px-8 py-4 bg-white text-black font-bold rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] w-fit"
+             className="group relative inline-flex items-center justify-center px-10 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]"
            >
-             <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+             <div className="absolute inset-0 bg-gradient-to-r from-green-300 via-emerald-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
              <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors">
-               Запустить сейчас <ArrowRight className="w-5 h-5" />
+               Запустить <ArrowRight className="w-5 h-5" />
              </span>
            </a>
-        </div>
+      </div>
 
-        {/* Right Side: iPhone Mockup */}
-        <div className="relative flex justify-center order-1 lg:order-2 perspective-1000">
-          {/* Ambient Glow */}
-          <div className="absolute inset-0 bg-green-500/20 blur-[80px] rounded-full pointer-events-none transform translate-y-10"></div>
+      {/* PHONE MOCKUP (Centered & Faded Bottom) */}
+      <div className="relative w-full flex justify-center perspective-1000 -mt-4">
+          {/* Ambient Background Glow */}
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-green-500/10 blur-[120px] rounded-full pointer-events-none"></div>
           
-          {/* iPhone 16 Frame */}
-          <div className="relative w-[300px] h-[620px] bg-gray-900 rounded-[3.5rem] shadow-2xl border-[6px] border-[#3a3a3a] ring-1 ring-white/10 overflow-hidden transform rotate-[-6deg] hover:rotate-0 transition-transform duration-700 ease-out z-10">
-             {/* Titanium Edge Shine */}
-             <div className="absolute inset-0 rounded-[3.2rem] ring-2 ring-white/20 pointer-events-none z-20"></div>
-
-             {/* Dynamic Island Area */}
-             <div className="absolute top-0 w-full h-8 flex justify-center z-30 pt-3">
-               <div className="w-28 h-7 bg-black rounded-full flex items-center justify-center space-x-2">
-                  <div className="w-2 h-2 rounded-full bg-[#1a1a1a]"></div>
+          {/* Phone Container */}
+          <div className="relative transform transition-transform duration-700 hover:scale-[1.01] hover:-rotate-1">
+            
+            {/* The Frame */}
+            <div 
+                className="relative w-[320px] h-[600px] bg-black rounded-[4rem] shadow-2xl border-[8px] border-[#1a1a1a] ring-1 ring-white/20 overflow-hidden z-10"
+                style={{
+                    // Mask image to fade out the bottom smoothly
+                    maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
+                }}
+            >
+               {/* Screen Content */}
+               <div className="w-full h-full bg-[#0F0F0F] relative">
+                  {/* Image - object-top ensures the top part (header) is always visible and aligned */}
+                  <img 
+                    src={featuredProject.image} 
+                    alt="NutriLens App" 
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const parent = e.currentTarget.parentElement;
+                        if (parent) {
+                            parent.innerHTML = '<div class="flex items-center justify-center h-full text-gray-500 font-mono text-xs p-4 text-center">Screen preview loading...</div>';
+                        }
+                    }}
+                  />
                </div>
-             </div>
-
-             {/* Screen Content */}
-             <div className="w-full h-full bg-[#0F0F0F] relative overflow-hidden">
-                {/* Status Bar Mock */}
-                <div className="absolute top-3 left-6 text-[10px] font-bold text-white z-20">12:37</div>
-                <div className="absolute top-3 right-6 flex space-x-1 z-20">
-                    <div className="w-4 h-2.5 border border-white rounded-[2px]"></div>
-                </div>
-
-                {/* Actual Screenshot Image */}
-                <img 
-                  src={featuredProject.image} 
-                  alt="NutriLens App Screenshot" 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    // Show fallback gradient if image missing
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                        const fallback = document.createElement('div');
-                        fallback.className = "w-full h-full flex items-center justify-center bg-gradient-to-br from-green-900 to-black p-8 text-center";
-                        fallback.innerHTML = "<div class='text-green-500 font-mono text-sm'>Add nutrilens-screen.jpg to public folder</div>";
-                        parent.appendChild(fallback);
-                    }
-                  }}
-                />
-             </div>
+               
+               {/* Glossy Reflection overlay */}
+               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none rounded-[3.5rem]"></div>
+            </div>
           </div>
-        </div>
       </div>
 
       {/* Divider */}
