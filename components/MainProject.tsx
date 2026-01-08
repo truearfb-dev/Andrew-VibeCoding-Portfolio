@@ -109,42 +109,42 @@ export const MainProject: React.FC = () => {
            </a>
       </div>
 
-      {/* PHONE MOCKUP (Centered & Faded Bottom) */}
-      <div className="relative w-full flex justify-center perspective-1000 -mt-4">
+      {/* PHONE MOCKUP (Full Stretch Image) */}
+      <div className="relative w-full flex justify-center perspective-1000 -mt-8">
           {/* Ambient Background Glow */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-green-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-green-500/10 blur-[120px] rounded-full pointer-events-none"></div>
           
           {/* Phone Container */}
           <div className="relative transform transition-transform duration-700 hover:scale-[1.01] hover:-rotate-1">
             
             {/* The Frame */}
             <div 
-                className="relative w-[320px] h-[600px] bg-black rounded-[4rem] shadow-2xl border-[8px] border-[#1a1a1a] ring-1 ring-white/20 overflow-hidden z-10"
+                className="relative w-[320px] h-[640px] bg-black rounded-[3.5rem] border-[6px] border-[#1a1a1a] ring-1 ring-white/20 overflow-hidden shadow-2xl z-10"
                 style={{
-                    // Mask image to fade out the bottom smoothly
-                    maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
+                    // Gradient mask to fade out the bottom
+                    maskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)'
                 }}
             >
-               {/* Screen Content */}
-               <div className="w-full h-full bg-[#0F0F0F] relative">
-                  {/* Image - object-top ensures the top part (header) is always visible and aligned */}
-                  <img 
-                    src={featuredProject.image} 
-                    alt="NutriLens App" 
-                    className="w-full h-full object-cover object-top"
-                    onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        const parent = e.currentTarget.parentElement;
-                        if (parent) {
-                            parent.innerHTML = '<div class="flex items-center justify-center h-full text-gray-500 font-mono text-xs p-4 text-center">Screen preview loading...</div>';
-                        }
-                    }}
-                  />
-               </div>
+               {/* Image fills entire container absolutely */}
+               <img 
+                 src={featuredProject.image} 
+                 alt="NutriLens App" 
+                 className="absolute inset-0 w-full h-full object-cover object-top scale-[1.01]"
+                 onError={(e) => {
+                     e.currentTarget.style.display = 'none';
+                     const parent = e.currentTarget.parentElement;
+                     if (parent) {
+                         const msg = document.createElement('div');
+                         msg.className = "flex items-center justify-center h-full text-gray-500 font-mono text-xs p-4 text-center absolute inset-0";
+                         msg.innerText = "Screen preview loading...";
+                         parent.appendChild(msg);
+                     }
+                 }}
+               />
                
-               {/* Glossy Reflection overlay */}
-               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none rounded-[3.5rem]"></div>
+               {/* Subtle Glass Glare Overlay */}
+               <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none opacity-50"></div>
             </div>
           </div>
       </div>
