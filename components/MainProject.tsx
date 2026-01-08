@@ -20,7 +20,7 @@ export const MainProject: React.FC = () => {
     tagline: 'Твой карманный нутрициолог',
     description: 'Мгновенный подсчет калорий по фото еды. ИИ распознает блюдо, определяет вес и выдает полный расклад КБЖУ за 1 секунду.',
     link: 'https://t.me/Nutrilensai_bot/app?startapp=mainsite',
-    stats: ['10k+ Пользователей', '98% Точность', '24/7 Трекинг'],
+    stats: ['1k+ Пользователей', '98% Точность', '24/7 Трекинг'],
     image: '/nutrilens-screen.jpg' 
   };
 
