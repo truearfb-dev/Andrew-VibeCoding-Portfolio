@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, ChevronDown, ChevronUp, Bot, Sparkles, Heart, LineChart, Zap, ArrowRight } from 'lucide-react';
+import { ExternalLink, ChevronDown, ChevronUp, Bot, Sparkles, LineChart, Zap, ArrowRight } from 'lucide-react';
 
 interface Project {
   id: string;
