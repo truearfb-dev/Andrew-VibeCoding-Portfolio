@@ -119,7 +119,7 @@ export const MainProject: React.FC = () => {
             
             {/* The Frame */}
             <div 
-                className="relative w-[320px] h-[640px] bg-black rounded-[3.5rem] border-[6px] border-[#1a1a1a] ring-1 ring-white/20 overflow-hidden shadow-2xl z-10"
+                className="relative w-[320px] h-[550px] bg-black rounded-[3.5rem] border-[6px] border-[#1a1a1a] ring-1 ring-white/20 overflow-hidden shadow-2xl z-10"
                 style={{
                     // Gradient mask to fade out the bottom
                     maskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
