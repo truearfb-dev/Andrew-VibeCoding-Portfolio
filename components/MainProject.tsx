@@ -109,42 +109,60 @@ export const MainProject: React.FC = () => {
            </a>
       </div>
 
-      {/* PHONE MOCKUP (Full Stretch Image) */}
+      {/* PHONE MOCKUP - iPhone 17 Pro Style */}
       <div className="relative w-full flex justify-center perspective-1000 -mt-8">
           {/* Ambient Background Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-green-500/10 blur-[120px] rounded-full pointer-events-none"></div>
           
           {/* Phone Container */}
-          <div className="relative transform transition-transform duration-700 hover:scale-[1.01] hover:-rotate-1">
-            
-            {/* The Frame */}
-            <div 
-                className="relative w-[320px] h-[550px] bg-black rounded-[3.5rem] border-[6px] border-[#1a1a1a] ring-1 ring-white/20 overflow-hidden shadow-2xl z-10"
-                style={{
-                    // Gradient mask to fade out the bottom
-                    maskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)'
-                }}
-            >
-               {/* Image fills entire container absolutely */}
-               <img 
-                 src={featuredProject.image} 
-                 alt="NutriLens App" 
-                 className="absolute inset-0 w-full h-full object-cover object-top scale-[1.01]"
-                 onError={(e) => {
-                     e.currentTarget.style.display = 'none';
-                     const parent = e.currentTarget.parentElement;
-                     if (parent) {
-                         const msg = document.createElement('div');
-                         msg.className = "flex items-center justify-center h-full text-gray-500 font-mono text-xs p-4 text-center absolute inset-0";
-                         msg.innerText = "Screen preview loading...";
-                         parent.appendChild(msg);
-                     }
-                 }}
-               />
-               
-               {/* Subtle Glass Glare Overlay */}
-               <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none opacity-50"></div>
+          <div 
+            className="relative transform transition-transform duration-700 hover:scale-[1.01] hover:-rotate-1 z-10"
+            style={{
+                // Fade out the bottom of the phone slightly for better blending
+                maskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)'
+            }}
+          >
+            {/* The Device Frame (Titanium Look) */}
+            <div className="relative w-[310px] h-[580px] bg-[#2a2a2a] rounded-[3rem] shadow-[0_0_0_2px_#444,0_20px_50px_-10px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/10">
+                
+                {/* Metallic Frame Gradient */}
+                <div className="absolute inset-0 rounded-[3rem] border-[6px] border-[#3a3a3a] opacity-80 pointer-events-none z-20"></div>
+
+                {/* Inner Black Bezel */}
+                <div className="absolute inset-[6px] bg-black rounded-[2.5rem] overflow-hidden z-10 border-[2px] border-black">
+                    
+                    {/* Dynamic Island (Notch) */}
+                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[90px] h-[26px] bg-black rounded-full z-40 flex items-center justify-center">
+                        {/* Camera lens reflection */}
+                        <div className="absolute right-2 w-2 h-2 rounded-full bg-[#1a1a1a] shadow-inner"></div>
+                    </div>
+
+                    {/* Main Screen Image */}
+                    <img 
+                        src={featuredProject.image} 
+                        alt="NutriLens App" 
+                        className="w-full h-full object-cover object-top"
+                        onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const parent = e.currentTarget.parentElement;
+                            if (parent) {
+                                const msg = document.createElement('div');
+                                msg.className = "flex items-center justify-center h-full text-gray-500 font-mono text-xs p-4 text-center absolute inset-0";
+                                msg.innerText = "Screen preview loading...";
+                                parent.appendChild(msg);
+                            }
+                        }}
+                    />
+
+                    {/* Screen Glare */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none z-30 opacity-40"></div>
+                </div>
+
+                {/* Side Buttons (Volume/Power) */}
+                <div className="absolute top-28 -left-[2px] w-[3px] h-8 bg-[#444] rounded-l-md opacity-80"></div>
+                <div className="absolute top-40 -left-[2px] w-[3px] h-12 bg-[#444] rounded-l-md opacity-80"></div>
+                <div className="absolute top-32 -right-[2px] w-[3px] h-16 bg-[#444] rounded-r-md opacity-80"></div>
             </div>
           </div>
       </div>
